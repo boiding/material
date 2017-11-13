@@ -1,16 +1,19 @@
 .PHONY: clean
 
-material.tar.gz: material
-	tar cvfz material.tar.gz material
+RESOURCES := material
+PACKAGE := $(RESOURCES).tar.gz
 
-material: book
-	mkdir -p material
+$(PACKAGE): $(RESOURCES)
+	tar cvfz $(PACKAGE) $(RESOURCES)
+
+$(RESOURCES): book
+	mkdir -p $(RESOURCES)
 	cp -r book/docs material/book
 
 book:
 	git clone https://github.com/boiding/book.git
 
 clean:
-	rm -f material.tar.gz
-	rm -rf material
+	rm -f $(PACKAGE)
+	rm -rf $(RESOURCES)
 	rm -rf book
