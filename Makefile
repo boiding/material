@@ -2,11 +2,12 @@
 
 RESOURCES := material
 PACKAGE := $(RESOURCES).tar.gz
+STARTERS := $(patsubst %,%-starter,minimalistic)
 
 $(PACKAGE): $(RESOURCES)
 	tar cvfz $(PACKAGE) $(RESOURCES)
 
-$(RESOURCES): book minimalistic-starter
+$(RESOURCES): book $(STARTERS)
 	mkdir -p $(RESOURCES)
 	cp -r book/docs $(RESOURCES)/book
 	cp -r *-starter $(RESOURCES)
