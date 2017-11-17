@@ -2,7 +2,7 @@
 
 RESOURCES := material
 PACKAGE := $(RESOURCES).tar.gz
-STARTERS := $(patsubst %,%-starter,minimalistic)
+STARTERS := $(patsubst %,%-starter,minimalistic node)
 
 $(PACKAGE): $(RESOURCES)
 	tar cvfz $(PACKAGE) $(RESOURCES)
