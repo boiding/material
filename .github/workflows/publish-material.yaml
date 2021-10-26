@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build artifact
-        run: make all
+        run: make material.tar.gz
       - name: Create release
         uses: marvinpinto/action-automatic-releases@latest
         with:
