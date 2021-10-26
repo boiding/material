@@ -8,12 +8,12 @@ $(PACKAGE): $(RESOURCES)
 	tar cvfz $(PACKAGE) $(RESOURCES)
 
 $(RESOURCES): book $(STARTERS)
-	mkdir -p $(RESOURCES)
-	cp -r book/docs $(RESOURCES)/book
-	cp -r *-starter $(RESOURCES)
+	mkdir -p $@
+	cp -r book $@
+	cp -r *-starter $@
 
 book:
-	git clone https://github.com/boiding/book.git
+	git clone --branch gh-pages https://github.com/boiding/book.git
 
 %-starter:
 	git clone https://github.com/boiding/$@
