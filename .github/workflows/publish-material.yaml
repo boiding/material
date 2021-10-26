@@ -1,9 +1,9 @@
 name: Publish Workshop Material
 on:
-  push:
+  - push:
     branches:
       - main
-  repository_dispatch
+  - repository_dispatch
 jobs:
   create-archive:
     runs-on: ubuntu-latest
